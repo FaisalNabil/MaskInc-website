@@ -61,17 +61,36 @@ class Project extends My_Controller
     public function add_new_category(){
         $cat_name =$this->input->post('cat_name');
         $status =$this->input->post('status');
+        $type =$this->input->post('type');
         $this->Config_model->setTable('project_categories');
         if($cat_name != null){
-            $data = array(
-                'PROJECT_CATEGORY_NAME'=>$cat_name,
-                'IS_VISIBLE'=>$status,
-                'CREATED_BY'=>$this->session->userdata('user_id'),
-                'CREATED_DATE'=>strtotime(date('Y-m-d')) * 1000,
-                'MODIFIED_DATE'=>strtotime(date('Y-m-d')) * 1000
-            );
 
-            $this->Config_model->insert($data);
+
+            if ($type == 'add'){
+                $data = array(
+                    'PROJECT_CATEGORY_NAME'=>$cat_name,
+                    'IS_VISIBLE'=>$status,
+                    'CREATED_BY'=>$this->session->userdata('user_id'),
+                    'CREATED_DATE'=>strtotime(date('Y-m-d')) * 1000,
+                    'MODIFIED_DATE'=>strtotime(date('Y-m-d')) * 1000
+                );
+
+                $this->Config_model->insert($data);
+            }else{
+
+
+                $cat_id =$this->input->post('category_id');
+
+                $data = array(
+                    'PROJECT_CATEGORY_NAME'=>$cat_name,
+                    'IS_VISIBLE'=>$status,
+                    'MODIFIED_BY'=>$this->session->userdata('user_id'),
+                    'MODIFIED_DATE'=>strtotime(date('Y-m-d')) * 1000,
+                );
+
+                $this->Config_model->update(array('PROJECT_CATEGORY_ID'=>$cat_id),$data);
+            }
+
         }
 
         // load all category
@@ -91,13 +110,40 @@ class Project extends My_Controller
                 $lavel = "<span class=\"label label-danger\">Deactive</span>";
             }
             $data[4] = $lavel;
-            $data[5] = '<a href="javascript:void(0)" onclick="jQuery(\'#edit_project_cat\').modal(\'show\', {backdrop: \'fade\'});" class="fa fa-edit"></a> 
-                        <a href="#" class="fa fa-trash"></a>
-                        <a href="#" class="fa fa-thumbs-o-down"></a>';
+            $data[5] = '<a href="javascript:void(0)" onclick="edit_category('.$row->PROJECT_CATEGORY_ID.');" class="fa fa-edit"></a> 
+                        <a href="#" onclick="return delete_category('.$row->PROJECT_CATEGORY_ID.');" class="fa fa-trash"></a>
+                      ';
             array_push($x,$data);
         }
         echo json_encode(array('data'=>$x));
 
+    }
+
+    public function individual_project_cat(){
+        $id = $this->input->post('id');
+        $this->Config_model->setTable('project_categories');
+        $result = $this->Config_model->get(array('PROJECT_CATEGORY_ID'=>$id))->row();
+
+        $data[0] = $result->PROJECT_CATEGORY_ID;
+        $data[1] = $result->PROJECT_CATEGORY_NAME;
+
+        $data[2] = "<option value='1' $result->IS_VISIBLE == '1' ? 'selected' : ''>Active</option>
+                    <option value='0' $result->IS_VISIBLE == '0' ? 'selected' : '' >Deactive</option>";
+
+        echo json_encode($data);
+    }
+
+    public function delete_category(){
+        $id = $this->input->post('id');
+        $this->Config_model->setTable('project_categories');
+        $result = $this->Config_model->delete(array('PROJECT_CATEGORY_ID'=>$id));
+        if($result){
+            $this->session->set_flashdata('success', 'Deleted Successfully.');
+        }else{
+            $this->session->set_flashdata('success', 'Problem when Successfully.');
+        }
+
+        echo 'success';
     }
 
 

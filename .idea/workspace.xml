@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ea3b9f8-50af-4f25-a257-0e31e610248a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/application/controllers/admin/Project.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/vw_project/vw_add_project.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/vw_project/vw_edit_user.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/vw_project/vw_manage_projects.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/vw_project/vw_project_category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/form_validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/form_validation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/vw_admin_console/vw_menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/vw_admin_console/vw_menu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/vw_admin_console/vw_menu_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/vw_admin_console/vw_menu_edit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/admin/Project.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/admin/Project.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/vw_project/vw_project_category.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/vw_project/vw_project_category.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,7 +39,7 @@
           <entry key="html" value="1" />
           <entry key="js" value="1" />
           <entry key="json" value="2" />
-          <entry key="php" value="55" />
+          <entry key="php" value="57" />
           <entry key="png" value="2" />
         </counts>
       </usages-collector>
@@ -56,18 +49,18 @@
           <entry key="Image" value="2" />
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="1" />
-          <entry key="PHP" value="55" />
+          <entry key="PHP" value="57" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="php" value="2462" />
+          <entry key="php" value="3838" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="9" />
-          <entry key="PHP" value="2453" />
+          <entry key="HTML" value="15" />
+          <entry key="PHP" value="3823" />
         </counts>
       </usages-collector>
     </session>
@@ -77,8 +70,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/admin/Project.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="93" column="88" selection-start-line="93" selection-start-column="72" selection-end-line="93" selection-end-column="88" />
+            <state relative-caret-position="408">
+              <caret line="145" column="23" selection-start-line="145" selection-start-column="23" selection-end-line="145" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -86,10 +79,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/vw_project/vw_project_category.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="87" column="53" selection-start-line="87" selection-start-column="53" selection-end-line="87" selection-end-column="53" />
+            <state relative-caret-position="176">
+              <caret line="141" column="28" selection-start-line="141" selection-start-column="28" selection-end-line="141" selection-end-column="28" />
               <folding>
                 <element signature="e#3392#3399#1#HTML" expanded="true" />
+                <element signature="e#1634#1683#0#HTML" />
               </folding>
             </state>
           </provider>
@@ -289,12 +283,12 @@
       <workItem from="1541520422563" duration="609000" />
       <workItem from="1541748076485" duration="106000" />
       <workItem from="1544212620719" duration="651000" />
-      <workItem from="1544244767125" duration="15804000" />
+      <workItem from="1544244767125" duration="20956000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17170000" />
+    <option name="totallyTimeSpent" value="22322000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -464,11 +458,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/admin/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3588" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/admin/Home.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
@@ -490,20 +479,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/vw_settings/vw_change_password.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="100" column="8" selection-start-line="100" selection-start-column="8" selection-end-line="135" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/vw_project/vw_add_project.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="106" column="40" selection-start-line="106" selection-start-column="40" selection-end-line="112" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/vw_admin_console/vw_menu.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="201">
@@ -514,6 +489,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/vw_project/vw_add_project.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="106" column="40" selection-start-line="106" selection-start-column="40" selection-end-line="112" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/vw_project/vw_manage_projects.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="768">
@@ -521,19 +503,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/vw_settings/vw_change_password.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="100" column="8" selection-start-line="100" selection-start-column="8" selection-end-line="135" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="72" column="93" selection-start-line="72" selection-start-column="20" selection-end-line="72" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/admin/Project.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="93" column="88" selection-start-line="93" selection-start-column="72" selection-end-line="93" selection-end-column="88" />
+        <state relative-caret-position="408">
+          <caret line="145" column="23" selection-start-line="145" selection-start-column="23" selection-end-line="145" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/vw_project/vw_project_category.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="87" column="53" selection-start-line="87" selection-start-column="53" selection-end-line="87" selection-end-column="53" />
+        <state relative-caret-position="176">
+          <caret line="141" column="28" selection-start-line="141" selection-start-column="28" selection-end-line="141" selection-end-column="28" />
           <folding>
             <element signature="e#3392#3399#1#HTML" expanded="true" />
+            <element signature="e#1634#1683#0#HTML" />
           </folding>
         </state>
       </provider>

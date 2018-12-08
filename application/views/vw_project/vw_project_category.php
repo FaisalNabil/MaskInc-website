@@ -73,7 +73,7 @@
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
-                    <input type="submit" class="btn btn-info" onclick=" return add_category()" name="submit" id="submit" value="Save Menu">
+                    <input type="submit" class="btn btn-info" onclick=" return add_category('add')" name="submit" id="submit" value="Save Menu">
                 </div>
             </form>
         </div>
@@ -92,19 +92,19 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="">Category Name</label>
-                        <input type="text" name="category_name" data-validate="required" id="category_name" class="form-control" placeholder="Enter Category Name" required="true">
+                        <input type="text" name="category_name_edit" data-validate="required" id="category_name_edit" class="form-control" placeholder="Enter Category Name" required="true">
+                        <input type="hidden" name="category_id_edit" id="category_id_edit" class="form-control">
                     </div>
                     <div class="form-group">
-                        <select class="form-control" id="status" name="status" data-validate="required">
-                            <option value="1">Yes</option>
-                            <option value="0">No</option>
+                        <select class="form-control" id="status_edit" name="status_edit" data-validate="required">
+
                         </select>
                     </div>
                 </div>
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
-                    <input type="submit" class="btn btn-info" onclick=" return add_category()" name="submit" id="submit" value="Save Menu">
+                    <input type="submit" class="btn btn-info" onclick=" return add_category('update')" name="submit" id="submit" value="Save Menu">
                 </div>
             </form>
         </div>
@@ -131,10 +131,28 @@
         });
     });
 
-    function add_category(){
+    function add_category(type=null){
+
+
         event.preventDefault();
-        var cat_name = $("#category_name").val();
-        var status = $("#status").val();
+        if(type == 'add'){
+            var cat_name = $("#category_name").val();
+            var status = $("#status").val();
+
+            if(cat_name != ""){
+                $("#add_group_modal").modal('hide');
+            }
+        }else{
+            var cat_name = $("#category_name_edit").val();
+            var status = $("#status_edit").val();
+            var category_id_edit = $("#category_id_edit").val();
+
+            if(cat_name != null){
+                $("#edit_project_cat").modal('hide');
+            }
+
+        }
+
 
         var table = $('#project_category').DataTable();
         table.destroy();
@@ -142,7 +160,7 @@
             "ajax": {
                 "url": '<?= base_url('admin/project/add_new_category'); ?>',
                 "type": 'POST',
-                "data": {cat_name:cat_name,status:status}
+                "data": {cat_name:cat_name,status:status,type:type,category_id:category_id_edit}
             },
             dom: 'Bfrtip',
             buttons: [{
@@ -156,4 +174,41 @@
             "bPaginate": true,
         });
     }
+    
+    function edit_category(id) {
+        $.ajax({
+            type:'POST',
+            data:{id:id},
+            url:"<?php echo site_url('admin/project/individual_project_cat')?>",
+            dataType:'json',
+            success:function (result) {
+                $("#category_name_edit").val(result[1]);
+                $("#category_id_edit").val(result[0]);
+                $("#status_edit").html(result[2]);
+                $("#edit_project_cat").modal('show');
+            },
+            error:function (result) {
+
+            }
+        })
+    }
+    function delete_category(id) {
+        if (confirm('Are you sure to delete the category?')){
+            $.ajax({
+                type:'POST',
+                data:{id:id},
+                url:"<?php echo site_url('admin/project/delete_category')?>",
+                success:function (result) {
+                    location.reload();
+                },
+                error:function (result) {
+
+                }
+            })
+        }else{
+            return false;
+        }
+    }
+
+
 </script>
