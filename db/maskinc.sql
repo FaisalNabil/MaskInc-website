@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2018 at 08:02 AM
+-- Generation Time: Dec 08, 2018 at 02:56 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -45,6 +45,147 @@ INSERT INTO `aauth_groups` (`id`, `name`, `definition`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `clients`
+--
+
+CREATE TABLE `clients` (
+  `CLIENT_ID` varchar(30) NOT NULL,
+  `CLIENT_NAME` varchar(50) NOT NULL,
+  `CLIENT_LOGO_URL` varchar(50) NOT NULL,
+  `IS_VISIBLE` tinyint(1) NOT NULL,
+  `CREATED_BY` int(11) NOT NULL,
+  `CREATED_DATE` bigint(20) NOT NULL,
+  `MODIFIED_BY` int(11) NOT NULL,
+  `MODIFIED_DATE` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `map_media_project`
+--
+
+CREATE TABLE `map_media_project` (
+  `MAP_MEDIA_PROJECT_ID` varchar(30) NOT NULL,
+  `PROJECT_ID` varchar(30) NOT NULL,
+  `MEDIA_ID` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `map_project_sub_category_project`
+--
+
+CREATE TABLE `map_project_sub_category_project` (
+  `MAP_PROJECT_SUB_CATEGORY_PROJECT_ID` varchar(30) NOT NULL,
+  `PROJECT_ID` varchar(30) NOT NULL,
+  `PROJECT_SUB_CATEGORY_ID` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `medias`
+--
+
+CREATE TABLE `medias` (
+  `MEDIA_ID` varchar(30) NOT NULL,
+  `MEDIA_TYPE` varchar(30) NOT NULL,
+  `MEDIA_URL` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `projects`
+--
+
+CREATE TABLE `projects` (
+  `PROJECT_ID` int(30) NOT NULL,
+  `PROJECT_TITLE` varchar(50) NOT NULL,
+  `PROJECT_START_DATE` bigint(20) NOT NULL,
+  `PROJECT_END_DATE` bigint(20) DEFAULT NULL,
+  `PROJECT_IS_RUNNING` tinyint(1) NOT NULL DEFAULT '0',
+  `PROJECT_IS_GALLARY` tinyint(1) NOT NULL,
+  `PROJECT_IS_VISIBLE` tinyint(1) NOT NULL,
+  `CREATED_BY` int(11) NOT NULL,
+  `CREATED_DATE` bigint(20) NOT NULL,
+  `MODIFIED_BY` int(11) NOT NULL,
+  `MODIFIED_DATE` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `project_categories`
+--
+
+CREATE TABLE `project_categories` (
+  `PROJECT_CATEGORY_ID` int(30) NOT NULL,
+  `PROJECT_CATEGORY_NAME` varchar(50) NOT NULL,
+  `IS_VISIBLE` tinyint(1) NOT NULL,
+  `CREATED_BY` varchar(11) NOT NULL,
+  `CREATED_DATE` bigint(20) NOT NULL,
+  `MODIFIED_BY` bigint(20) DEFAULT NULL,
+  `MODIFIED_DATE` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `project_categories`
+--
+
+INSERT INTO `project_categories` (`PROJECT_CATEGORY_ID`, `PROJECT_CATEGORY_NAME`, `IS_VISIBLE`, `CREATED_BY`, `CREATED_DATE`, `MODIFIED_BY`, `MODIFIED_DATE`) VALUES
+(1, 'Transportation Planning', 1, 'admin', 1544223600000, NULL, 1544223600000),
+(2, 'Traffice Engineering', 1, 'admin', 1544223600000, NULL, 1544223600000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `project_sub_categories`
+--
+
+CREATE TABLE `project_sub_categories` (
+  `PROJECT_SUB_CATEGORY_ID` varchar(30) NOT NULL,
+  `PROJECT_SUB_CATEGORY_NAME` varchar(30) NOT NULL,
+  `IS_VISIBLE` tinyint(1) NOT NULL,
+  `CREATED_BY` int(11) NOT NULL,
+  `CREATED_DATE` bigint(20) NOT NULL,
+  `MODIFIED_BY` int(11) NOT NULL,
+  `MODIFIED_DATE` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `roles`
+--
+
+CREATE TABLE `roles` (
+  `ROLE_ID` varchar(30) NOT NULL,
+  `ROLE_TYPE_ID` varchar(30) NOT NULL,
+  `ROLE_NAME` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `role_types`
+--
+
+CREATE TABLE `role_types` (
+  `ROLE_TYPE_ID` varchar(30) NOT NULL,
+  `ROLE_TYPE_NAME` varchar(50) NOT NULL,
+  `PROJECT_ID` varchar(30) NOT NULL,
+  `CREATED_BY` int(11) NOT NULL,
+  `CREATED_DATE` bigint(20) NOT NULL,
+  `MODIFIED_BY` int(11) NOT NULL,
+  `MODIFIED_DATE` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_app_log`
 --
 
@@ -79,7 +220,7 @@ CREATE TABLE `tbl_login` (
 --
 
 INSERT INTO `tbl_login` (`login_id`, `password`, `status`, `login_status`, `change_pass_status`, `created_on`, `last_login`, `tbl_user_user_id`) VALUES
-(1, '40be4e59b9a2a2b5dffb918c0e86b3d7', 1, 1, 1, '2018-06-21 05:05:28', '2018-12-08 15:43:26', 'admin');
+(1, '40be4e59b9a2a2b5dffb918c0e86b3d7', 1, 1, 1, '2018-06-21 05:05:28', '2018-12-08 18:55:04', 'admin');
 
 -- --------------------------------------------------------
 
@@ -110,7 +251,11 @@ INSERT INTO `tbl_menu` (`ser_id`, `menu_label`, `menu_url`, `menu_icon`, `parent
 (28, 'User', '#', 'fa-users', NULL, 2),
 (29, 'Add User', 'add_new_user', NULL, 28, 1),
 (30, 'Manage Users', 'manage_users', NULL, 28, 2),
-(31, 'Settings', '#', 'fa-cog', NULL, 9);
+(31, 'Settings', '#', 'fa-cog', NULL, 9),
+(71, 'Projects', '#', 'fa-shekel', NULL, 2),
+(72, 'Manage Projects', 'admin/project/manage_project', NULL, 71, 1),
+(73, 'Add New Project', 'admin/project/add_new_project', NULL, 71, 2),
+(74, 'Project Category', 'admin/project/category', NULL, 71, 3);
 
 -- --------------------------------------------------------
 
@@ -162,6 +307,60 @@ ALTER TABLE `aauth_groups`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `clients`
+--
+ALTER TABLE `clients`
+  ADD PRIMARY KEY (`CLIENT_ID`);
+
+--
+-- Indexes for table `map_media_project`
+--
+ALTER TABLE `map_media_project`
+  ADD PRIMARY KEY (`MAP_MEDIA_PROJECT_ID`);
+
+--
+-- Indexes for table `map_project_sub_category_project`
+--
+ALTER TABLE `map_project_sub_category_project`
+  ADD PRIMARY KEY (`MAP_PROJECT_SUB_CATEGORY_PROJECT_ID`);
+
+--
+-- Indexes for table `medias`
+--
+ALTER TABLE `medias`
+  ADD PRIMARY KEY (`MEDIA_ID`);
+
+--
+-- Indexes for table `projects`
+--
+ALTER TABLE `projects`
+  ADD PRIMARY KEY (`PROJECT_ID`);
+
+--
+-- Indexes for table `project_categories`
+--
+ALTER TABLE `project_categories`
+  ADD PRIMARY KEY (`PROJECT_CATEGORY_ID`);
+
+--
+-- Indexes for table `project_sub_categories`
+--
+ALTER TABLE `project_sub_categories`
+  ADD PRIMARY KEY (`PROJECT_SUB_CATEGORY_ID`);
+
+--
+-- Indexes for table `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`ROLE_ID`);
+
+--
+-- Indexes for table `role_types`
+--
+ALTER TABLE `role_types`
+  ADD PRIMARY KEY (`ROLE_TYPE_ID`);
+
+--
 -- Indexes for table `tbl_app_log`
 --
 ALTER TABLE `tbl_app_log`
@@ -209,6 +408,18 @@ ALTER TABLE `aauth_groups`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT for table `projects`
+--
+ALTER TABLE `projects`
+  MODIFY `PROJECT_ID` int(30) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `project_categories`
+--
+ALTER TABLE `project_categories`
+  MODIFY `PROJECT_CATEGORY_ID` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `tbl_app_log`
 --
 ALTER TABLE `tbl_app_log`
@@ -224,7 +435,7 @@ ALTER TABLE `tbl_login`
 -- AUTO_INCREMENT for table `tbl_menu`
 --
 ALTER TABLE `tbl_menu`
-  MODIFY `ser_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `ser_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- AUTO_INCREMENT for table `tbl_menu_to_group`

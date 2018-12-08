@@ -51,7 +51,7 @@
 					<td><?php echo $menu->menu_label; ?></td>
 					<td><?php echo $menu->menu_url; ?></td>
 					<td><?php echo $menu->parent_menu_label; ?></td>
-					<td><a href="<?php echo base_url('amdin/auth/edit_menu/'.$menu->ser_id); ?>" class="btn btn-secondary btn-sm btn-icon icon-left">Edit</a>
+					<td><a href="<?php echo base_url('admin/auth/edit_menu/'.$menu->ser_id); ?>" class="btn btn-secondary btn-sm btn-icon icon-left">Edit</a>
 					<a href="<?php echo base_url().'admin/auth/delete_menu/'.$menu->ser_id; ?>" class="btn btn-danger btn-sm btn-icon icon-left" title="Delete" onclick="return menu_delete()">Delete</a></td>
 				</tr>
 				<?php endforeach; ?>
@@ -68,7 +68,7 @@
 					<h4 class="modal-title">Add New Menu</h4>
 				</div>
 				
-				<form action="<?php echo base_url('auth/save_menu'); ?>" method="POST">
+				<form action="<?php echo base_url('admin/auth/save_menu'); ?>" method="POST">
 				<div class="modal-body">
 					<div class="form-group">
 						<label for="">Menu Label</label>

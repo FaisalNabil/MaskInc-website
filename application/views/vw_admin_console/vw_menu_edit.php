@@ -37,7 +37,7 @@
         <?php $this->load->view($alert_msg); ?>
     </div>
     <div class="panel-body">
-        <form action="<?php echo base_url('auth/update_menu/'); ?>" method="POST">
+        <form action="<?php echo base_url('admin/auth/update_menu/'); ?>" method="POST">
             <input type="hidden" name="menu_id" id="menu_id" value="<?php echo $menu_data->ser_id; ?>">
             <div class="form-group">
                 <label for="">Menu Label</label>
